@@ -17,7 +17,7 @@ for FILE_NAME in ${HOME_CONFIG_FILE}; do
     DOTFILE_SYMLINK[$FILE_NAME]=$FILE_NAME
 done
 DOTFILE_SYMLINK[".test"]=".testbis"
-DOTFILE_SYMLINK[".oh-my-zsh"]="oh-my-zsh/oh-my-zsh"
+DOTFILE_SYMLINK[".oh-my-zsh"]="oh-my-zsh"
 DOTFILE_SYMLINK[".tmux.conf"]=".tmux/.tmux.conf"
 DOTFILE_SYMLINK[".vimrc"]=".vim/.vimrc"
 
@@ -95,3 +95,5 @@ git -C "${DOTFILE_HOME}" submodule update --remote
 # Install vim plugin
 vim -c :PlugInstall /tmp/dotfilesInstall -c :qa!
 
+# Build YouCompleteMe server
+python ${HOME}/.vim/plugged/YouCompleteMe/install.py
