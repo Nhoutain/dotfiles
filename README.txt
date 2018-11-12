@@ -4,7 +4,7 @@
 ## Files installation
 
 ```
-git clone git@bitbucket.org:nhoutain/dotfiles.git ${HOME}/dotfiles
+git clone git@github.com:Nhoutain/dotfiles.git ${HOME}/dotfiles
 cd ${HOME}/dotfiles
 ./installDotFiles
 ./installSoftware
