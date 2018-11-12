@@ -1,0 +1,42 @@
+# vim: ft=muttrc
+
+# INDEX
+bind index gg       first-entry
+bind index G        last-entry
+bind index K        previous-unread
+bind index J        next-unread
+bind index j        next-entry
+bind index k        previous-entry
+bind index N        search-opposite
+bind index W        clear-flag
+bind index w        set-flag
+bind index <Enter>  display-message
+bind index \CD      half-down 
+bind index \CU      half-up 
+bind index i        noop
+bind index D        delete-thread
+bind index -        collapse-thread
+bind index _        collapse-all
+bind index \cR      read-thread
+
+# PAGER
+bind pager i  exit
+bind pager /  search
+bind pager j  next-line
+bind pager k  previous-line
+bind pager K  previous-undeleted
+bind pager J  next-undeleted
+bind pager D  delete-thread
+bind index \CD      half-down 
+bind index \CU      half-up 
+
+# BOTH INDEX & PAGER
+bind index,pager \#  noop
+bind index,pager \&  noop
+bind index,pager R   group-reply
+
+# COMPOSE
+bind compose p  pgp-menu
+
+# ATTACH
+bind attach <return>  view-mailcap

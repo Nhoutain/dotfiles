@@ -1,0 +1,114 @@
+#---------------------------------------------------------------
+# file:     ~/.mutt/muttrc  
+# author:   Houtain Nicolas inspired from Jason Ryan: http://jasonwryan.com/
+# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=sh
+#---------------------------------------------------------------
+
+  set editor              = "/usr/bin/vim -c 'set tw=70 ft=mail' -c 'setlocal+=aw' -c 'set wrap' -c 'set nocp' -c '+/^--.$/-1'"
+
+# directories and commands
+  set alias_file          = ~/.mutt/alias                          # alias file
+  set header_cache        = ~/.mutt/cache/headers                  # where to store headers        
+  set message_cachedir    = ~/.mutt/cache/bodies                   # where to store bodies
+  set certificate_file    = ~/.mutt/certificates                   # where to store certs
+  set mailcap_path        = ~/.mutt/mailcap                        # entrys for filetypes
+  set signature           = ~/.mutt/signature                      # my signature file
+  set tmpdir              = ~/.mutt/temp                           # where to keep temp files
+  set ispell              = "/usr/bin/aspell -e -c"                # use aspell as ispell
+  set imap_peek           = no                                     # Gmail mark as read
+  set sleep_time          = 0                                      # instantaneous mailbox change
+
+# main options
+  set mbox_type           = Maildir                                # mailbox type
+  set folder              = ~/.mail                                # mailbox location
+  set spoolfile           = "+nh/nh.INBOX"                          # default inbox
+  set timeout             = 3                                      # idle time before scanning
+  set mail_check          = 0                                      # minimum time between scans
+  set sort_alias          = alias                                  # sort alias file by alias
+  set reverse_alias                                                # show names from alias file in index
+unset move                                                         # gmail does that
+  set delete                                                       # don't ask, just do
+unset confirmappend                                                # don't ask, just do!
+  set quit                                                         # don't ask, just do!!
+unset mark_old                                                     # read/new is good enough for me
+  set beep_new                                                     # bell on new mails
+  set pipe_decode                                                  # strip headers and eval mimes when piping
+  set thorough_search                                              # strip headers and eval mimes before searching
+  set text_flowed         = yes                                    # no hard breaks in quoted text
+unset help
+
+# thread
+unset collapse_unread
+
+# index options
+  set sort                = threads                                # like gmail 
+  set sort_aux            = reverse-last-date-received             # like gmail
+  set uncollapse_jump                                              # don't collapse on an unread message 
+  set sort_re                                                      # thread based on regex
+  set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+  set pager_index_lines   = 10                                     # number of index lines to show 
+  set pager_context       = 5                                      # number of context lines to show
+  set pager_stop                                                   # don't go to next message automatically
+  set menu_scroll                                                  # scroll in menus 
+  set smart_wrap                                                   # don't split words
+  set tilde                                                        # show tildes like in vim
+unset markers                                                      # no ugly plus signs
+  set quote_regexp        = "^( {0,4}[>|:                          #%]| {0,4}[a-z0-9]+[>|]+)+"
+  set status_on_top                                                # as you'd expect
+auto_view text/html                                                # view html automatically
+alternative_order text/plain text/enriched text/html               # save html for last
+auto_view text/calendar                                            # view ical files
+alternative_order text/plain text/html text/*
+
+# formats
+  set date_format         = "%d/%m/%y at %I:%M%P"
+  set index_format        = "%3C  %S   %D  •  %-25.25L %s %> %c"
+  set pager_format        = "Reading message %C of %m %> %lL [%P]" # pager statusbar
+  set folder_format       = "%2C %t %N %8s %d %f"                  # mailbox list view
+  set status_format       = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
+  set alias_format        = "%4n %t %-20a  %r"
+
+                                                                   # composing mail
+  set realname            = "Houtain Nicolas"                      # who am i?
+  set envelope_from                                                # which from?
+  set sig_dashes                                                   # dashes before my sig... sweet
+  set edit_headers                                                 # show headers when composing
+  set fast_reply                                                   # skip to compose when replying
+  set sendmail_wait       = -1                                     # don't wait for sending... to complete
+  set askcc                                                        # ask for CC
+  set askbcc                                                       # and blind CC
+  set fcc_attach                                                   # save attachments with the body
+  set mime_forward                                                 # forward attachments as part of body
+  set mime_forward_rest                                            # include attachments
+  set forward_format      = "Fwd: %s"                              # format for subject when forwarding
+  set forward_decode                                               # decode when forwarding
+  set attribution         = "On %d, %n wrote:"                     # set the attribution
+  set reply_to                                                     # reply to Reply to: field
+  set reverse_name                                                 # reply as whomever it was to
+  set include                                                      # include message in replies
+  set forward_quote                                                # include message in forwards
+  set print_command      = "muttprint"                             # printer…
+
+                                                                   # headers to show
+ignore *                                                           # ignore all headers
+unignore from: to: cc: date: subject:                              # show only these
+hdr_order from: to: cc: date: subject:                             # and in this order
+
+# Add other files
+source ~/.mutt/bindings
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/macros
+source ~/.mutt/gpg
+source ~/.mutt/hooks
+source ~/.mutt/alias
+
+# Mailing lists
+lists mtheme@noreply.github.com
+subscribe mtheme@noreply.github.com
+
+lists spf13-vim@noreply.github.com
+subscribe spf13-vim@noreply.github.com
+

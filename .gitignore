@@ -1,0 +1,13 @@
+
+.vim/.swap
+.vim/.tmp
+.vim/.undo
+.vim/plugged
+
+.mutt/cache/
+.mutt/temp/
+
+.tmux/plugins
+
+# Temporart file
+*.un~

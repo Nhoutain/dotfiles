@@ -1,0 +1,97 @@
+#!/bin/bash
+
+DOTFILE_HOME="${HOME}/dotfiles"
+
+HOME_CONFIG_FILE=".profile .bashrc \
+    .oh-my-zsh .zshrc.pre-oh-my-zsh .zshrc \
+    .offlineimaprc .mutt .notmuch-config .msmtprc\
+    .tmux.conf \
+    .gitconfig \
+    .myclirc \
+    .mpv \
+    .vim .vimrc .nvim .config/nvim .ideavimrc .ctags"
+
+declare -A DOTFILE_SYMLINK 
+# By default it's the same name
+for FILE_NAME in ${HOME_CONFIG_FILE}; do
+    DOTFILE_SYMLINK[$FILE_NAME]=$FILE_NAME
+done
+DOTFILE_SYMLINK[".test"]=".testbis"
+DOTFILE_SYMLINK[".oh-my-zsh"]="oh-my-zsh/oh-my-zsh"
+DOTFILE_SYMLINK[".tmux.conf"]=".tmux/.tmux.conf"
+DOTFILE_SYMLINK[".vimrc"]=".vim/.vimrc"
+
+BACKUP_DIR="${HOME}/.dotfilesBackup"
+CURRENT_TIME=$(date +%x_%H:%M:%S | sed 's/\//-/g')
+CURRENT_BACKUP_DIR="${BACKUP_DIR}/${CURRENT_TIME}"
+
+# ----------------------------------------------------------------------
+
+# Process old configuration
+# Param: file
+function processOldConfiguration {
+    TEXT="Configuration already exist for $1. Backup, remove, skip or quit?  B/r/s/q: "
+    read -p "$TEXT" KEY
+
+    if [ $KEY = "B" ] || [ $KEY = "b" ]; then
+        # Backup it
+        mkdir -p ${BACKUP_DIR}
+        mkdir -p ${CURRENT_BACKUP_DIR}
+        mv $1 "${CURRENT_BACKUP_DIR}/${2}"
+    elif [ $KEY = "R" ] || [ $KEY = "r" ]; then
+        # Remove it
+        if [ -f $1 ]; then
+            rm $1
+        elif [ -d $1 ]; then
+            rm -r $1
+        fi
+    elif [ $KEY = "S" ] || [ $KEY = "s" ]; then
+        # Skip
+        echo "skip"
+
+    elif [ $KEY = "Q" ] || [ $KEY = "q" ]; then
+        # Quit
+        exit 0 
+    else 
+        echo "Must be B/r/q"
+        exit 1
+    fi
+}
+
+# ----------------------------------------------------------------------
+
+###########################
+# Clear old configuration #
+###########################
+for FILE_NAME in $HOME_CONFIG_FILE; do
+    FILE="${HOME}/${FILE_NAME}"
+    if [ -e "$FILE" ] || [ -L "$FILE"]; then
+        processOldConfiguration $FILE $FILE_NAME
+    fi
+done
+
+############################
+# Create new configuration #
+############################
+
+# Create mutt temporary file
+mkdir -p ${DOTFILE_HOME}/.mutt/cache
+mkdir -p ${DOTFILE_HOME}/.mutt/temp
+mkdir -p ${DOTFILE_HOME}/.vim/swap
+mkdir -p ${DOTFILE_HOME}/.vim/tmp
+mkdir -p ${DOTFILE_HOME}/.vim/undo
+
+# Nvim specific 
+mkdir -p ${HOME}/.config/
+
+for FILE_NAME in $HOME_CONFIG_FILE; do
+    # Create symlink to dotfiles
+    ln -s ${DOTFILE_HOME}/${DOTFILE_SYMLINK[${FILE_NAME}]} ${HOME}/${FILE_NAME}
+done
+
+# Checkout oh-my-zsh
+git -C "${DOTFILE_HOME}" submodule update --remote
+
+# Install vim plugin
+vim -c :PlugInstall /tmp/dotfilesInstall -c :qa!
+

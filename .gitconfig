@@ -1,0 +1,14 @@
+[user]
+	name = Houtain Nicolas
+	email = Nicolas.houtain@actito.com
+[core]
+	autocrlf = input
+    edito = vim
+[alias]
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+    loa = log --graph --decorate --abbrev-commit --all --date=local
+	fix = !git diff --name-only --relative -z --diff-filter=U | xargs ${EDITOR} 
+    fix = "!f() { ${EDITOR} `git diff --name-only --diff-filter=U`; }; f"  
+[push]
+	default = simple

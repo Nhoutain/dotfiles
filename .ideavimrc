@@ -1,0 +1,10 @@
+
+" Build-in plugin
+set surround
+set multiple-cursors 
+
+set smartcase
+set number
+
+set clipboard+=unnamed
+set clipboard+=unnamedplus
