@@ -10,13 +10,6 @@ cd ${HOME}/dotfiles
 ./installSoftware
 ```
 
-## Vim plugins installation
-
-Open vim and execute the command
-```
-:PlugInstall
-```
-
 # Documentation
 
 ## Tmux
