@@ -189,8 +189,9 @@ alias mvn='mvn -T 1C'
 
 # }}} 2
 # Undistract-me {{{ 2
+# Based on https://gist.github.com/ihashacks/4576452
 # commands to ignore
-cmdignore=(htop less man nvim ssh tail tmux top vim vi
+cmdignore=(htop less man nvim ssh tail tmux top vim vi)
 
 # set gt 0 to enable GNU units for time results
 gnuunits=0
