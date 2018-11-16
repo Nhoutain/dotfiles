@@ -190,7 +190,7 @@ alias mvn='mvn -T 1C'
 # }}} 2
 # Undistract-me {{{ 2
 # commands to ignore
-cmdignore=(htop less man nvim tail tmux top vim vi)
+cmdignore=(htop less man nvim ssh tail tmux top vim vi
 
 # set gt 0 to enable GNU units for time results
 gnuunits=0
@@ -255,7 +255,7 @@ preexec_functions+=( notifyosd-preexec )
 # }}} 1
 # Actito {{{ 1
 export ACTITO_HOME=~/Actito/
-export ACTITO_USER=${HOME}
+export ACTITO_USER=houtn
 
 # ${HOME}/RnD/scriptRND/yacli
 if [ -f ${HOME}/RnD/scriptRND/yacli/config/alias.config ]; then

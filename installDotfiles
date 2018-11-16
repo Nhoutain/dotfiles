@@ -4,7 +4,6 @@ DOTFILE_HOME="${HOME}/dotfiles"
 
 HOME_CONFIG_FILE=".profile .bashrc \
     .oh-my-zsh .zshrc.pre-oh-my-zsh .zshrc \
-    .offlineimaprc .mutt .notmuch-config .msmtprc\
     .tmux.conf \
     .gitconfig \
     .myclirc \

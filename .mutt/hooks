@@ -1,7 +1,0 @@
-
-# account specific sources
-folder-hook nh/* source ~/.mutt/accounts/nh
-folder-hook stud/* source ~/.mutt/accounts/stud 
-
-# default account
-source ~/.mutt/accounts/nh 
