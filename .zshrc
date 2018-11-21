@@ -77,7 +77,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration {{{ 1
 unsetopt correct_all
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH:${HOME}/dotfiles/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -88,7 +88,7 @@ export LC_ALL="en_US.UTF-8"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -108,12 +108,19 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 alias mutt='cd $HOME/Downloads/;/usr/bin/mutt;cd -'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+if command -v exa > /dev/null; then
+    alias ls='exa'
+    alias ll='exa -l'
+else
+    alias ll='ls -alF'
+    alias la='ls -A'
+    alias l='ls -CF'
+fi
 
 # Idea
 alias idea="bash ${HOME}/Documents/tools/idea/idea-IU-182.4505.22/bin/idea.sh"
+
+# Exa
 # }}} 2
 # }}} 1
 # Tools configuration {{{ 1

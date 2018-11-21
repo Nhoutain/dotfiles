@@ -1,6 +1,11 @@
 
 # Installation
 
+## Rust installation
+`
+curl https://sh.rustup.rs -sSf | sh
+`
+
 ## Files installation
 
 ```

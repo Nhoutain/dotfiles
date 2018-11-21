@@ -1,8 +1,9 @@
 #!/bin/bash
 
-APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags"
+APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura"
 PIP_SOFTWARE="mycli mu-repo thefuck"
 
 
 sudo apt install ${APT_SOFTWARE}
 sudo pip install ${PIP_SOFTWARE}
+
