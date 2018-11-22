@@ -2,8 +2,22 @@
 
 APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura"
 PIP_SOFTWARE="mycli mu-repo thefuck"
+RUST_SOFTWARE="rls-preview rust-analysis rust-src rustfmt-preview"
 
 
 sudo apt install ${APT_SOFTWARE}
+
+# Install pip
+if ! command -v pip > /dev/null; then
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py | python
+fi
 sudo pip install ${PIP_SOFTWARE}
+
+# Install rust
+if ! command -v pip > /dev/null; then
+    curl https://sh.rustup.rs -sSf | sh
+    rustup update
+    rustup component add ${RUST_SOFTWARE}
+fi
+
 

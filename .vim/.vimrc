@@ -41,6 +41,10 @@ Plug 'tpope/vim-abolish'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 " Syntastic
 Plug 'vim-syntastic/syntastic'
 
@@ -280,7 +284,17 @@ nnoremap <F8> :TagbarToggle<CR>
 " }}}1
 " Section: Commands {{{1
 " -----------------------
-
+" SL {{{2
+if has("eval")
+    function! SL(function)
+        if exists('*'.a:function)
+            return call(a:function,[])
+        else
+            return ''
+        endif
+    endfunction
+endif
+" }}}2
 " OpenURL {{{2
 function! OpenURL(url)
     if has("win32")
@@ -302,8 +316,7 @@ nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
 nnoremap gS :OpenURL https://stackoverflow.com/search?q=<cword><CR>
 nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 "}}}2
-
-" Find with fzf
+" Find with fzf {{{2
 " --column: Show column number
 "  " --line-number: Show line number
 "  " --no-heading: Do not show file headings in results
@@ -316,7 +329,7 @@ nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><
 "  the .git/ folder)
 "  " --color: Search color options
 command! -bang -nargs=* Find call fzf#vim#grep('ag --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-
+"}}}2
 "}}}1
 " Section: Autocommands {{{1
 " --------------------------

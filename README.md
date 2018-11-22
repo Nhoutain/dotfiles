@@ -1,11 +1,6 @@
 
 # Installation
 
-## Rust installation
-`
-curl https://sh.rustup.rs -sSf | sh
-`
-
 ## Files installation
 
 ```
@@ -16,6 +11,11 @@ cd ${HOME}/dotfiles
 ```
 
 # Documentation
+
+## Rust cli
+
+For clap: https://docs.rs/clap/2.32.0/clap/
+For structopt: https://docs.rs/structopt/0.2.13/structopt/
 
 ## Tmux
 
