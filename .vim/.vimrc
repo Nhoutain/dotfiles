@@ -93,7 +93,7 @@ if executable("rg")
 endif
 set history=200
 set incsearch       " Incremental search
-set laststatus=2    " Always show status line
+set laststatus=1    " Always show status line
 set lazyredraw
 set linebreak
 set mouse=nvi
