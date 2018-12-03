@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura"
+APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura python-dev"
 PIP_SOFTWARE="mycli mu-repo thefuck"
 RUST_SOFTWARE="rls-preview rust-analysis rust-src rustfmt-preview"
 

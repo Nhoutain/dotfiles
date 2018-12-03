@@ -125,3 +125,5 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 # }}} 2
 # }}} 1
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
