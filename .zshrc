@@ -118,7 +118,7 @@ else
 fi
 
 # Idea
-alias idea="bash ${HOME}/Documents/tools/idea/idea-IU-182.4505.22/bin/idea.sh"
+alias idea="bash ${HOME}/Documents/tools/idea-IU-183.4284.148/bin/idea.sh"
 
 # Exa
 # }}} 2
@@ -198,7 +198,7 @@ alias mvn='mvn -T 1C'
 # Undistract-me {{{ 2
 # Based on https://gist.github.com/ihashacks/4576452
 # commands to ignore
-cmdignore=(htop less man nvim ssh tail tmux top vim vi)
+cmdignore=(htop less man nvim ranger ssh tail tmux top vim vi)
 
 # set gt 0 to enable GNU units for time results
 gnuunits=0

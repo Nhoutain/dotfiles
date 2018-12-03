@@ -1,17 +1,15 @@
 #!/bin/bash
 
-APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura python-dev"
-PIP_SOFTWARE="mycli mu-repo thefuck"
+APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura python-dev python-pip python3-pip python3-setuptools"
+PIP_SOFTWARE="mycli mu-repo"
+PIP3_SOFTWARE="thefuck"
 RUST_SOFTWARE="rls-preview rust-analysis rust-src rustfmt-preview"
 
 
 sudo apt install ${APT_SOFTWARE}
 
-# Install pip
-if ! command -v pip > /dev/null; then
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py | python
-fi
 sudo pip install ${PIP_SOFTWARE}
+sudo pip3 install ${PIP3_SOFTWARE}
 
 # Install rust
 if ! command -v pip > /dev/null; then
