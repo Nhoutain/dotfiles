@@ -53,8 +53,8 @@ Plug 'nvie/vim-flake8'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Markdown
-Plug 'suan/vim-instant-markdown'
-Plug 'plasticboy/vim-markdown'
+" Plug 'suan/vim-instant-markdown'
+" Plug 'plasticboy/vim-markdown'
 
 " Integration
 Plug 'mikelue/vim-maven-plugin'

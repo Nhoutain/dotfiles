@@ -8,3 +8,11 @@ set number
 
 set clipboard+=unnamed
 set clipboard+=unnamedplus
+
+
+" Until tpope-unimpaired is available
+vnoremap ]m :action NextMethod<CR>
+vnoremap [m :action PreviousMethod<CR>
+
+vnoremap ]l :action NextHighlightedError<CR>
+vnoremap [l :action PreviousHighlightedError<CR>
