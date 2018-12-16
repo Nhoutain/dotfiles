@@ -54,7 +54,6 @@ plugins=( \
     cp \
     debian \
     git-extras git-prompt git-remote-branch git gitignore \
-    git-flow-avh git-flow  \
     jira \
     mvn \
     mongo mongodb \
@@ -132,12 +131,11 @@ alias tmuxKillDetached='tmux list-sessions | grep -E -v '\(attached\)$' | while 
 export LESS="-RXF"
 # }}} 2
 # Java {{{ 2
-export JDK_7_HOME='/opt/java/64/jdk1.7.0_79/'
-export JDK_8_HOME='/opt/java/64/jdk1.8.0_101/'
-export JDK_9_HOME='/opt/java/64/jdk-9.0.1'
-export JAVA_7_HOME=$JDK_7_HOME
+#cli
+export JDK_8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JDK_11_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export JAVA_8_HOME=$JDK_8_HOME
-export JAVA_9_HOME=$JDK_9_HOME
+export JAVA_11_HOME=$JDK_11_HOME
 export JAVA_HOME=$JDK_8_HOME
 export PATH=$JAVA_HOME/bin:$PATH
 # }}} 2
@@ -212,11 +210,9 @@ function notifyosd-precmd() {
         fi
         if [ $retval -gt 0 ]; then
 			cmdstat="with warning"
-			sndstat="/usr/share/sounds/LinuxMint/stereo/dialog-error.ogg"
 			urgency="normal"
 		else
             cmdstat="successfully"
-			sndstat="/usr/share/sounds/LinuxMint/stereo/dialog-warning.ogg"
 			urgency="normal"
         fi
         if [ ! -z "$cmd" -a $cmd_secs -gt 10 ]; then
@@ -231,13 +227,11 @@ function notifyosd-precmd() {
                         -t 2000 \
 						-u $urgency \
                         "$cmd_basename on `hostname` completed $cmdstat" "\"$cmd\" took $cmd_time"; \
-						play -q $sndstat
             else
                 notify-send -i utilities-terminal \
                         -t 2000 \
 						-u $urgency \
                         "$cmd_basename completed $cmdstat" "\"$cmd\" took $cmd_time"; \
-						play -q $sndstat
             fi
         fi
         unset cmd

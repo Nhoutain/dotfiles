@@ -43,7 +43,7 @@ Plug 'Valloric/YouCompleteMe'
 
 " Rust
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+"Plug 'racer-rust/vim-racer'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
