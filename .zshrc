@@ -154,6 +154,7 @@ bindkey '^w' backward-kill-word
 
 # Vim fast
 alias vimfast='vim -u NONE -N'
+alias vif='vimfast'
 # }}} 2
 # Fancy ctrl z {{{ 2
 fancy-ctrl-z () {
@@ -193,7 +194,8 @@ alias mvn='mvn -T 1C'
 # Undistract-me {{{ 2
 # Based on https://gist.github.com/ihashacks/4576452
 # commands to ignore
-cmdignore=(htop idea less man nvim ranger ssh tail tmux top vim vi)
+cmdignore=(fg git htop idea less man nvim ranger ssh tail tmux top vim vi)
+setopt BASH_REMATCH
 
 # set gt 0 to enable GNU units for time results
 gnuunits=0
@@ -244,7 +246,21 @@ precmd_functions+=( notifyosd-precmd )
 # get command name and start the timer
 function notifyosd-preexec() {
     cmd=$1
-    cmd_basename=${${cmd:s/sudo //}[(ws: :)1]} 
+    cmd_baseclean=${${cmd:s/sudo //}[(ws: :)1]} 
+
+    cmd_alias=$(alias ${cmd_baseclean})
+    if [ -z "$cmd_alias" ]; then
+        cmd_basename=${cmd_baseclean}
+    else 
+        regex="(.*)=[']?([^']*)[']?"
+        if [[ ${cmd_alias} =~ ${regex} ]]; then 
+            toReplace=${BASH_REMATCH[2]}
+            replacer=${BASH_REMATCH[3]}
+            cmd_basename=${cmd_baseclean/${toReplace}/${replacer}}
+        else 
+            cmd_basename=${cmd_baseclean}
+        fi
+    fi 
     cmd_start=`date +%s`
 }
 
