@@ -256,7 +256,7 @@ function notifyosd-preexec() {
         if [[ ${cmd_alias} =~ ${regex} ]]; then 
             toReplace=${BASH_REMATCH[2]}
             replacer=${BASH_REMATCH[3]}
-            cmd_basename=${cmd_baseclean/${toReplace}/${replacer}}
+            cmd_basename=${${cmd_baseclean/${toReplace}/${replacer}}[(ws: :)1]}
         else 
             cmd_basename=${cmd_baseclean}
         fi
