@@ -1,7 +1,7 @@
 
-.vim/.swap
-.vim/.tmp
-.vim/.undo
+.vim/swap
+.vim/tmp
+.vim/undo
 .vim/plugged
 
 .mutt/cache/

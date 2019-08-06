@@ -109,7 +109,10 @@ alias mutt='cd $HOME/Downloads/;/usr/bin/mutt;cd -'
 # some more ls aliases
 if command -v exa > /dev/null; then
     alias ls='exa'
+    alias la='exa -a'
     alias ll='exa -l'
+    alias lll='exa -la'
+    alias lla='exa -la'
 else
     alias ll='ls -alF'
     alias la='ls -A'
@@ -125,6 +128,7 @@ export TERM="screen-256color"
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 alias tmuxKillDetached='tmux list-sessions | grep -E -v '\(attached\)$' | while IFS='\n' read line; do tmux kill-session -t "${line%%:*}"; done'
+TMUX_PLUGIN_MANAGER_PATH='/home/houtn/.tmux/plugins'
 # }}} 2
 # Mycli {{{ 2
 # Fix less output
@@ -151,6 +155,8 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
+bindkey '^[[Z' reverse-menu-complete
+
 
 # Vim fast
 alias vimfast='vim -u NONE -N'
@@ -268,12 +274,7 @@ function notifyosd-preexec() {
 preexec_functions+=( notifyosd-preexec )
 # }}} 2
 # }}} 1
-# Actito {{{ 1
-export ACTITO_HOME=~/Actito/
-export ACTITO_USER=houtn
-
-# ${HOME}/RnD/scriptRND/yacli
-if [ -f ${HOME}/RnD/scriptRND/yacli/config/alias.config ]; then
-    source ${HOME}/RnD/scriptRND/yacli/config/alias.config
-fi
+# EMAsphere {{{ 1
+export PATH="/home/houtn/bin/Sencha/Cmd:$PATH"
+alias ema="ema --git ~/Emasphere/emasphere"
 # }}} 1

@@ -1,6 +1,7 @@
 [user]
 	name = Houtain Nicolas
 	email = nhoutain@emasphere.com
+    slack = UEHKH0C3U
 [core]
 	autocrlf = input
     edito = vim

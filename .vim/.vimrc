@@ -83,6 +83,7 @@ set autoindent
 set autoread
 set autowrite       " Automatically save before commands like :next and :make
 set backupdir=${HOME}/.vim/tmp/
+set cm=blowfish2
 set cmdheight=2
 set directory=${HOME}/.vim/swap/
 set foldmethod=marker
