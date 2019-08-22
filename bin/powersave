@@ -13,5 +13,5 @@ sudo cpufreq-set --cpu 9 --governor powersave
 sudo cpufreq-set --cpu 10 --governor powersave
 sudo cpufreq-set --cpu 11 --governor powersave
 
-# cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 

@@ -53,7 +53,7 @@ DISABLE_CORRECTION="true"
 plugins=( \
     cp \
     debian \
-    git-extras git-prompt git-remote-branch git gitignore \
+    git-extras git-prompt git-remote-branch git gitignore github \
     jira \
     mvn \
     mongo mongodb \
