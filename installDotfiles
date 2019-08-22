@@ -3,7 +3,7 @@
 DOTFILE_HOME="${HOME}/dotfiles"
 
 HOME_CONFIG_FILE=".profile .bashrc \
-    .oh-my-zsh .zshrc.pre-oh-my-zsh .zshrc \
+    .zshrc.pre-oh-my-zsh .zshrc \
     .tmux.conf .tmux \
     .gitconfig \
     .myclirc \
@@ -87,9 +87,6 @@ for FILE_NAME in $HOME_CONFIG_FILE; do
     # Create symlink to dotfiles
     ln -s ${DOTFILE_HOME}/${DOTFILE_SYMLINK[${FILE_NAME}]} ${HOME}/${FILE_NAME}
 done
-
-# Checkout oh-my-zsh
-git -C "${DOTFILE_HOME}" submodule update --remote
 
 # Install vim plugin
 vim -c :PlugInstall /tmp/dotfilesInstall -c :qa!

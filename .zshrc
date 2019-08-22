@@ -1,10 +1,50 @@
+
 # Oh-my-zsh {{{ 1
 # Path and theme {{{ 2
 # Path to your oh-my-zsh installation.
-export ZSH=${HOME}/.oh-my-zsh
-alias ohmyzsh="mate ~/.oh-my-zsh"
+#export ZSH=${HOME}/.oh-my-zsh
+#alias ohmyzsh="mate ~/.oh-my-zsh"
+source $HOME/dotfiles/antigen.zsh
 
-ZSH_THEME="gallifrey"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle command-not-found
+antigen bundle cp
+antigen bundle debian
+antigen bundle git-extras 
+antigen bundle git-prompt 
+antigen bundle git-remote-branch 
+antigen bundle git gitignore 
+antigen bundle github
+antigen bundle jira
+antigen bundle mvn
+antigen bundle mongo 
+antigen bundle mongodb
+antigen bundle antigen bundle node 
+antigen bundle npm 
+antigen bundle nvm
+antigen bundle pip
+antigen bundle pyenv
+antigen bundle pylint
+antigen bundle spring
+antigen bundle ssh-agent
+antigen bundle sudo
+antigen bundle thefuck
+antigen bundle tmux 
+antigen bundle tmuxinator
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme gallifrey
+
+# Tell Antigen that you're done.
+antigen apply
+#
+#ZSH_THEME="gallifrey"
 # }}} 2
 # Basic {{{ 2   
 # Uncomment the following line to use case-sensitive completion.
@@ -46,32 +86,11 @@ HIST_STAMPS="dd-mm-yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 DISABLE_CORRECTION="true"
 # }}} 2
-# Plugins {{{ 2   
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=( \
-    cp \
-    debian \
-    git-extras git-prompt git-remote-branch git gitignore github \
-    jira \
-    mvn \
-    mongo mongodb \
-    node npm nvm \
-    pyenv \
-    pylint \
-    spring \
-    ssh-agent \
-    sudo \
-    thefuck \
-    tmux tmuxinator )
-# Setup {{{ 3   
+# Zsh and tmux {{{ 2   
 # Tmux
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="false"
-# }}} 3
 # }}} 2
-source $ZSH/oh-my-zsh.sh
 # }}} 1
 # User configuration {{{ 1
 unsetopt correct_all
