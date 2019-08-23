@@ -2,8 +2,6 @@
 # Oh-my-zsh {{{ 1
 # Path and theme {{{ 2
 # Path to your oh-my-zsh installation.
-#export ZSH=${HOME}/.oh-my-zsh
-#alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -11,6 +9,8 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle command-not-found
+antigen bundle common-aliases
+antigen bundle compleat
 antigen bundle cp
 antigen bundle debian
 antigen bundle git-extras 
@@ -22,7 +22,7 @@ antigen bundle jira
 antigen bundle mvn
 antigen bundle mongo 
 antigen bundle mongodb
-antigen bundle antigen bundle node 
+antigen bundle node 
 antigen bundle npm 
 antigen bundle nvm
 antigen bundle pip
@@ -34,17 +34,17 @@ antigen bundle sudo
 antigen bundle thefuck
 antigen bundle tmux 
 antigen bundle tmuxinator
+antigen bundle web-search
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search 
 
 # Load the theme.
 antigen theme gallifrey
 
 # Tell Antigen that you're done.
 antigen apply
-#
-#ZSH_THEME="gallifrey"
 # }}} 2
 # Basic {{{ 2   
 # Uncomment the following line to use case-sensitive completion.
@@ -86,7 +86,11 @@ HIST_STAMPS="dd-mm-yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 DISABLE_CORRECTION="true"
 # }}} 2
-# Zsh and tmux {{{ 2   
+# Bundle config {{{ 2
+# configure your keybindings here... just 2 lines of code!
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # Tmux
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="false"
@@ -147,7 +151,7 @@ export TERM="screen-256color"
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 alias tmuxKillDetached='tmux list-sessions | grep -E -v '\(attached\)$' | while IFS='\n' read line; do tmux kill-session -t "${line%%:*}"; done'
-TMUX_PLUGIN_MANAGER_PATH='/home/houtn/.tmux/plugins'
+TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins"
 # }}} 2
 # Mycli {{{ 2
 # Fix less output
@@ -294,6 +298,6 @@ preexec_functions+=( notifyosd-preexec )
 # }}} 2
 # }}} 1
 # EMAsphere {{{ 1
-export PATH="/home/houtn/bin/Sencha/Cmd:$PATH"
+export PATH="$HOME/bin/Sencha/Cmd:$PATH"
 alias ema="ema --git ~/Emasphere/emasphere"
 # }}} 1
