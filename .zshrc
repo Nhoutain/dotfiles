@@ -39,6 +39,7 @@ antigen bundle web-search
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search 
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Load the theme.
 antigen theme gallifrey
@@ -94,6 +95,12 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Tmux
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="false"
+
+# Auto suggestions
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+bindkey -M viins '^o' autosuggest-execute
+bindkey -M viins '^ ' autosuggest-accept
+
 # }}} 2
 # }}} 1
 # User configuration {{{ 1
