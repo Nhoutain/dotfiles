@@ -12,4 +12,14 @@
 	fix = !git diff --name-only --relative -z --diff-filter=U | xargs ${EDITOR} 
     fix = "!f() { ${EDITOR} `git diff --name-only --diff-filter=U`; }; f"  
 [push]
-	default = simple
+    default = simple
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = true
+    pager = true
+    remote = true
+
+

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APT_SOFTWARE="zsh build-essential cmake python3-dev tmux exuberant-ctags ranger zathura python-dev python-pip python3-pip python3-setuptools"
-PIP_SOFTWARE="mycli mu-repo"
+PIP_SOFTWARE="mycli mu-repo terminal_velocity"
 PIP3_SOFTWARE="thefuck"
 RUST_SOFTWARE="rls-preview rust-analysis rust-src rustfmt-preview"
 
