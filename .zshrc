@@ -13,12 +13,15 @@ antigen bundle common-aliases
 antigen bundle compleat
 antigen bundle cp
 antigen bundle debian
+antigen bundle fzf
 antigen bundle git-extras 
 antigen bundle git-prompt 
 antigen bundle git-remote-branch 
 antigen bundle git gitignore 
 antigen bundle github
+antigen bundle helm
 antigen bundle jira
+antigen bundle kubectl
 antigen bundle mvn
 antigen bundle mongo 
 antigen bundle mongodb
@@ -41,6 +44,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search 
 antigen bundle zsh-users/zsh-autosuggestions
 
+antigen bundle junegunn/fzf
+
 # Load the theme.
 antigen theme gallifrey
 
@@ -57,6 +62,9 @@ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to disable the escape of curl
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -214,8 +222,11 @@ set -o vi
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/fzf/fzf.plugin.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# }}} 2
+# Note {{{ 2
+alias note='terminal_velocity'
 # }}} 2
 # Maven {{{ 2
 export NVM_DIR="$HOME/.nvm"
@@ -224,7 +235,7 @@ export NVM_DIR="$HOME/.nvm"
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-alias mvn='mvn -T 1C'
+alias mvn='mvn -T 4C'
 
 # }}} 2
 # Undistract-me {{{ 2
@@ -305,6 +316,7 @@ preexec_functions+=( notifyosd-preexec )
 # }}} 2
 # }}} 1
 # EMAsphere {{{ 1
-export PATH="$HOME/bin/Sencha/Cmd:$PATH"
-alias ema="ema --git ~/Emasphere/emasphere"
+export PATH=$HOME/bin/Sencha/Cmd:$PATH
+export PATH=$HOME/Emasphere/bin:$PATH
+export PATH=$PATH:$HOME/.helm
 # }}} 1

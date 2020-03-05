@@ -1,0 +1,3 @@
+#!/bin/bash
+
+diff --new-line-format="" --unchanged-line-format="" <(git log --cherry-pick --left-only --no-merges --format="%an__%ad-%s" "$1"..."$2" | sort) <(git log --format="%an__%ad-%s" "$2" | sort)
