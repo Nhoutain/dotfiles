@@ -235,7 +235,7 @@ export NVM_DIR="$HOME/.nvm"
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-alias mvn='mvn -T 4C'
+alias mvn='mvn -T 2C'
 
 # }}} 2
 # Undistract-me {{{ 2
