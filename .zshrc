@@ -46,6 +46,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle junegunn/fzf
 
+antigen bundle johanhaleby/kubetail
+
 # Load the theme.
 antigen theme gallifrey
 
@@ -235,7 +237,7 @@ export NVM_DIR="$HOME/.nvm"
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-alias mvn='mvn -T 2C'
+alias mvn='mvn -T 1C'
 
 # }}} 2
 # Undistract-me {{{ 2
@@ -319,4 +321,15 @@ preexec_functions+=( notifyosd-preexec )
 export PATH=$HOME/bin/Sencha/Cmd:$PATH
 export PATH=$HOME/Emasphere/bin:$PATH
 export PATH=$PATH:$HOME/.helm
+
+source $HOME/Emasphere/emasphere/admin/scripts/aws/bash_aliases_template
+
+alias k9s-dev='ema-aws-dev; k9s -n emasphere -c pods'
+alias k9S-dev='k9s-dev'
+alias k9s-test='ema-aws-test; k9s -n emasphere -c pods'
+alias k9S-test='k9s-test'
+alias k9s-preprod='ema-aws-preprod; k9s -n emasphere -c pods'
+alias k9S-preprod='k9s-preprod'
+alias k9s-prod='ema-aws-prod; k9s -n emasphere -c pods'
+alias k9S-prod='k9S-prod'
 # }}} 1

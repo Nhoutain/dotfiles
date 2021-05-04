@@ -1,11 +1,12 @@
 [user]
 	name = Houtain Nicolas
 	email = nhoutain@emasphere.com
-    slack = UEHKH0C3U
+    slack = NHO
 [core]
 	autocrlf = input
     edito = vim
 [alias]
+    gone = ! "git branch -vv | grep ': gone]' | grep -v '\\*' | awk '{ print $1; }' | xargs -r git branch -D"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
     loa = log --graph --decorate --abbrev-commit --all --date=local
