@@ -1,6 +1,7 @@
 
 " Build-in plugin
 set surround
+" set sneak
 set multiple-cursors 
 
 set smartcase
@@ -16,3 +17,7 @@ vnoremap [m :action PreviousMethod<CR>
 
 vnoremap ]l :action NextHighlightedError<CR>
 vnoremap [l :action PreviousHighlightedError<CR>
+
+" Shutdown sounds
+set visualbell
+set noerrorbells

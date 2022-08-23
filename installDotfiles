@@ -1,9 +1,8 @@
 #!/bin/bash
 
 DOTFILE_HOME="${HOME}/dotfiles"
-
-HOME_CONFIG_FILE=".profile .bashrc \
-    .zshrc.pre-oh-my-zsh .zshrc \
+# .profile .bashrc \
+HOME_CONFIG_FILE=".zshrc.pre-oh-my-zsh .zshrc \
     .tmux.conf .tmux \
     .gitconfig \
     .myclirc \

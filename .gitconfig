@@ -23,3 +23,5 @@
     pager = true
     remote = true
 
+[rebase]
+	instructionFormat = (%an <%ae>) %s

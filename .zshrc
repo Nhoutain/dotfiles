@@ -116,7 +116,7 @@ bindkey -M viins '^ ' autosuggest-accept
 # User configuration {{{ 1
 unsetopt correct_all
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH:${HOME}/.local/bin/:${HOME}/dotfiles/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH:${HOME}/.local/bin/:${HOME}/dotfiles/bin:${HOME}/.cargo/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -180,7 +180,7 @@ export JDK_8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export JDK_11_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export JAVA_8_HOME=$JDK_8_HOME
 export JAVA_11_HOME=$JDK_11_HOME
-export JAVA_HOME=$JDK_8_HOME
+export JAVA_HOME=$JDK_11_HOME
 export PATH=$JAVA_HOME/bin:$PATH
 # }}} 2
 # Vim {{{ 2
@@ -236,8 +236,6 @@ export NVM_DIR="$HOME/.nvm"
 # Speed up java starting
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-alias mvn='mvn -T 1C'
 
 # }}} 2
 # Undistract-me {{{ 2
@@ -318,18 +316,16 @@ preexec_functions+=( notifyosd-preexec )
 # }}} 2
 # }}} 1
 # EMAsphere {{{ 1
-export PATH=$HOME/bin/Sencha/Cmd:$PATH
-export PATH=$HOME/Emasphere/bin:$PATH
-export PATH=$PATH:$HOME/.helm
-
-source $HOME/Emasphere/emasphere/admin/scripts/aws/bash_aliases_template
-
-alias k9s-dev='ema-aws-dev; k9s -n emasphere -c pods'
-alias k9S-dev='k9s-dev'
-alias k9s-test='ema-aws-test; k9s -n emasphere -c pods'
-alias k9S-test='k9s-test'
-alias k9s-preprod='ema-aws-preprod; k9s -n emasphere -c pods'
-alias k9S-preprod='k9s-preprod'
-alias k9s-prod='ema-aws-prod; k9s -n emasphere -c pods'
-alias k9S-prod='k9S-prod'
+## For this fucking sencha
+export OPENSSL_CONF=/etc/ssl/
+source ~/.ema_aliases
 # }}} 1
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
