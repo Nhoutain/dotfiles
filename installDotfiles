@@ -18,6 +18,7 @@ DOTFILE_SYMLINK[".test"]=".testbis"
 DOTFILE_SYMLINK[".oh-my-zsh"]="oh-my-zsh"
 DOTFILE_SYMLINK[".tmux.conf"]=".tmux/.tmux.conf"
 DOTFILE_SYMLINK[".vimrc"]=".vim/.vimrc"
+DOTFILE_SYMLINK[".key_bindings.ron"]=".config/gitui/key_bindings.ron"
 
 BACKUP_DIR="${HOME}/.dotfilesBackup"
 CURRENT_TIME=$(date +%x_%H:%M:%S | sed 's/\//-/g')
